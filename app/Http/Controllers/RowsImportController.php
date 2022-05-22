@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Import\RowsImporter;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RowsImportController extends Controller
 {
@@ -14,6 +16,6 @@ class RowsImportController extends Controller
     {
         $request->validate(self::$rules);
 
-        return $request->file('file');
+        Excel::import(new RowsImporter(), $request->file('file'));
     }
 }
