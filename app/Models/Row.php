@@ -10,6 +10,6 @@ class Row extends Model
     public $timestamps = false;
     protected $guarded = [];
     protected $casts = [
-        'date' => 'date',
+        'date' => 'date:Y-m-d',
     ];
 }
